@@ -11,6 +11,12 @@ topics:
   - visualization
   - widget
 
+screenshots:
+  - description: "Horizontal GitHub palette, Monday-start custom palette, and vertical layouts."
+    path: doc/screenshot_horizontal.png
+  - description: "Vertical axis, RTL Arabic labels, and shrink-to-fit sizing."
+    path: doc/screenshot_vertical.png
+
 environment:
   sdk: ">=3.0.0 <4.0.0"
   flutter: ">=3.10.0"

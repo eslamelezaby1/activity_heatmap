@@ -2,6 +2,12 @@
 
 A highly customizable activity heatmap widget for Flutter — GitHub-style contribution graphs painted with a single `CustomPainter` so they stay smooth across multi-year ranges.
 
+<p align="center">
+  <img src="doc/screenshot_horizontal.png" width="280" alt="Horizontal GitHub-style, Monday-start custom palette, and vertical layouts" />
+  &nbsp;&nbsp;
+  <img src="doc/screenshot_vertical.png" width="280" alt="Vertical, RTL Arabic, and shrink-to-fit layouts" />
+</p>
+
 ## Features
 
 - One cell per day across any `[startDate, endDate]` range.
