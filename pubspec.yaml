@@ -1,0 +1,27 @@
+name: activity_heatmap
+description: A highly customizable activity heatmap widget for Flutter, rendered with a single CustomPainter for performance across multiple years of data.
+version: 0.1.0
+repository: https://github.com/eslamelezaby1/activity_heatmap
+issue_tracker: https://github.com/eslamelezaby1/activity_heatmap/issues
+
+topics:
+  - heatmap
+  - calendar
+  - chart
+  - visualization
+  - widget
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:

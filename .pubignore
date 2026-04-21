@@ -1,0 +1,16 @@
+.dart_tool/
+.idea/
+build/
+*.iml
+
+example/.dart_tool/
+example/build/
+example/android/
+example/ios/
+example/macos/
+example/windows/
+example/linux/
+example/web/
+example/pubspec.lock
+example/*.iml
+example/test/
