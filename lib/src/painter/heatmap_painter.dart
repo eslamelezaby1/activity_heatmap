@@ -71,6 +71,7 @@ class HeatmapPainter extends CustomPainter {
   void _paintWeekdayLabels(Canvas canvas) {
     final textStyle = style.weekdayLabelStyle ??
         const TextStyle(color: Color(0xFF666666), fontSize: 10);
+    final slotWidth = geometry.cellSize + geometry.spacing;
     for (int r = 0; r < 7; r++) {
       // The weekday for row r = firstDayOfWeek + r (mod 7).
       // Our label array is indexed 0=Mon..6=Sun.
@@ -79,10 +80,23 @@ class HeatmapPainter extends CustomPainter {
       if (idx < 0 || idx >= style.weekdayLabels.length) continue;
       final label = style.weekdayLabels[idx];
       if (label.isEmpty) continue;
-      final tp = TextPainter(
+      var tp = TextPainter(
         text: TextSpan(text: label, style: textStyle),
         textDirection: geometry.textDirection,
       )..layout();
+      // Vertical mode gives each weekday only a cell-wide slot above the
+      // grid. If the full label would overflow its slot and collide with
+      // neighbours, fall back to the first grapheme (e.g. "Mon" → "M").
+      if (geometry.axis == HeatmapAxis.vertical && tp.width > slotWidth) {
+        final runes = label.runes.iterator;
+        final firstChar = runes.moveNext()
+            ? String.fromCharCode(runes.current)
+            : label;
+        tp = TextPainter(
+          text: TextSpan(text: firstChar, style: textStyle),
+          textDirection: geometry.textDirection,
+        )..layout();
+      }
       final cellRect = geometry.cellRect(0, r);
       final Offset origin;
       if (geometry.axis == HeatmapAxis.horizontal) {
